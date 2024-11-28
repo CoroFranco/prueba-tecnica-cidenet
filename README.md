@@ -9,6 +9,7 @@ Antes de comenzar, asegúrate de tener instalados los siguientes componentes:
 - PHP
 - Composer
 - MySQL
+- Apache
 
 ## 🛠️ Configuración del Proyecto
 

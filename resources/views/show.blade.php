@@ -28,6 +28,8 @@
                                 <th scope="col" class="px-3 py-2 sm:px-4 md:px-6 md:py-3 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider">Last Name</th>
                                 <th scope="col" class="hidden md:table-cell px-3 py-2 sm:px-4 md:px-6 md:py-3 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider">Email</th>
                                 <th scope="col" class="px-3 py-2 sm:px-4 md:px-6 md:py-3 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider">ID</th>
+                                <th scope="col" class="px-3 py-2 sm:px-4 md:px-6 md:py-3 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider">Area</th>
+                                <th scope="col" class="px-3 py-2 sm:px-4 md:px-6 md:py-3 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider">Registration Date</th>
                                 <th scope="col" class="hidden sm:table-cell px-3 py-2 sm:px-4 md:px-6 md:py-3 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider">State</th>
                                 <th scope="col" class="px-3 py-2 sm:px-4 md:px-6 md:py-3 text-left text-xs sm:text-sm font-medium text-gray-500 uppercase tracking-wider">Actions</th>
                             </tr>
@@ -39,9 +41,11 @@
                                     <td class="px-3 py-2 sm:px-4 md:px-6 md:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">{{ $employee->firstLastName }}</td>
                                     <td class="hidden md:table-cell px-3 py-2 sm:px-4 md:px-6 md:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">{{ $employee->email }}</td>
                                     <td class="px-3 py-2 sm:px-4 md:px-6 md:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">{{ $employee->doc }}</td>
+                                    <td class="px-3 py-2 sm:px-4 md:px-6 md:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">{{ $employee->area }}</td>
+                                    <td class="px-3 py-2 sm:px-4 md:px-6 md:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">{{ $employee->created_at }}</td>
                                     <td class="hidden sm:table-cell px-3 py-2 sm:px-4 md:px-6 md:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500">
                                         <span class="px-2 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                            {{ ucfirst($employee->state) }}
+                                            {{ $employee->state}}
                                         </span>
                                     </td>
                                     <td class="px-3 py-2 sm:px-4 md:px-6 md:py-4 whitespace-nowrap text-xs sm:text-sm font-medium">
