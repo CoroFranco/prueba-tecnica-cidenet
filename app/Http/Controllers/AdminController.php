@@ -14,7 +14,7 @@ class AdminController extends Controller
     public function store(Request $request){
         try {
             $validated = Validator::make($request->all(), [
-                'firstLastName' => 'required|string|max:20|regex:/^[A-Z]+$/',
+                'firstLastName' => 'required|string|max:20|regex:/^[A-Z\s]+$/',
                 'secondLastName' => 'required|string|max:20|regex:/^[A-Z]+$/',
                 'firstName' => 'required|string|max:20|regex:/^[A-Z]+$/', 
                 'middleName' => 'nullable|string|max:50|regex:/^[A-Z\s]+$/', 
@@ -32,13 +32,13 @@ class AdminController extends Controller
                 ], 400);
             }
 
-            $emailBase = strtolower($request->firstName . '.' . $request->firstLastName . '@cidenet.com.co');
+            $emailBase = strtolower($request->firstName . '.' . str_replace(' ', '', $request->firstLastName) . '@cidenet.com.co');
             
             $email = $emailBase;
             $counter = 1;
 
             while (Employee::where('email', $email)->exists()) {
-                $email = strtolower($request->firstName . '.' . $request->firstLastName . '.' . $counter . '@cidenet.com.co');
+                $email = strtolower($request->firstName . '.' . str_replace(' ', '', $request->firstLastName) . '.' . $counter . '@cidenet.com.co');
                 $counter++; 
             }
 
