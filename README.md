@@ -67,3 +67,5 @@ Antes de comenzar, asegúrate de tener instalados los siguientes componentes:
    php artisan serve
    npm run dev
    ```
+
+7. **Ahora puedes tener registro de tus empleados**
