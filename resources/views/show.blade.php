@@ -17,6 +17,31 @@
 
     <div class="max-w-7xl mx-auto">
         <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-6 text-center">Employees</h1>
+
+                <form action=" show " method="GET" class="mb-6">
+                    <div class="flex items-center">
+                        <input
+                            type="text"
+                            name="search"
+                            placeholder="Search by ID"
+                            value="{{ $search ?? '' }}"
+                            class="flex-grow px-4 py-2 border border-gray-300 rounded-l-md focus:ring-blue-500 focus:border-blue-500"
+                        >
+                        <button
+                            type="submit"
+                            class="px-4 py-2 bg-blue-500 text-white rounded-r-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+                        >
+                            Search
+                        </button>
+                    </div>
+                </form>
+        
+                @if($search)
+                    <p class="mb-4 text-gray-600">
+                        Showing results for ID: <span class="font-semibold">{{ $search }}</span>
+                        <a href="show" class="ml-2 text-blue-500 hover:underline">Clear search</a>
+                    </p>
+                @endif
         
         <div class="bg-white shadow-md rounded-lg overflow-hidden">
             <div class="overflow-x-auto scrollbar-thin">
@@ -57,13 +82,17 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="6" class="px-3 py-2 sm:px-4 md:px-6 md:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500 text-center">No employees have been created yet.</td>
+                                    <td colspan="8" class="px-3 py-2 sm:px-4 md:px-6 md:py-4 whitespace-nowrap text-xs sm:text-sm text-gray-500 text-center">No employees have been created yet.</td>
                                 </tr>
                             @endforelse
                         </tbody>
                     </table>
                 </div>
             </div>
+        </div>
+
+        <div class="mt-4">
+            {{ $employees->links() }}
         </div>
     </div>
 
@@ -220,3 +249,4 @@
     </script>
 </body>
 </html>
+

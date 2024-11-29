@@ -31,7 +31,7 @@
                     </div>
                     <div>
                         <label for="middleName">Middle Name(s):</label>
-                        <input required type="text" name="middleName" id="middleName" class="uppercase">
+                        <input type="text" name="middleName" id="middleName" class="uppercase">
                     </div>
                     <div>
                         <label for="country">Country:</label>

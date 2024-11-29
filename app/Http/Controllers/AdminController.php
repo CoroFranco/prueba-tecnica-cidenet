@@ -143,6 +143,19 @@ public function editEmployee(Request $request, $id)
     }
 }
 
+public function search(Request $request)
+    {
+        $search = $request->input('search');
+
+        $employees = Employee::when($search, function ($query) use ($search) {
+                return $query->where('doc', 'LIKE', "%{$search}%");
+            })
+            ->paginate(10)
+            ->appends(['search' => $search]);
+
+        return view('show', compact('employees', 'search'));
+    }
+
 }
     
 
